@@ -79,6 +79,7 @@ C/C++言語仕様にないが他の言語ではコルーチンという仕組み
 
 #### MonoBehaviour.print() で出力する方法
 MonoBehaviourのメンバー関数にあったので説明しますが print関数でログに出力することができます。
+
 public static void MonoBehaviour.print (object message);
 ##### 例
 ```C#
@@ -384,6 +385,13 @@ namespace UnityEngine
     }
 }
 ```
+## UnityEngine.Objectの機能
+Unityゲームエンジンの最小単位のオブジェクト。全てのクラスはここから派生して作成されている。
+
+
+# おまけ
+Unityゲームエンジンは代表的なクラスは全てはC++言語で実装されています。
+
 
 # まとめ
 
