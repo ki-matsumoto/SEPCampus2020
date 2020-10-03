@@ -12,7 +12,7 @@ UnityのMonoBehaviourについて考えてみようと思います。
 Unityでプログラムをする時はMonoBehaviourから継承したスクリプトに記述して GameObjectにアタッチして使用するということです。
 
 
-## クラス継承
+## クラス定義を確認する
 MonoBehaviourのクラス定義を見るためにプロジェクトを用意してみましょう。
 
 ### Unityで新規プロジェクトを作ります
@@ -103,7 +103,7 @@ GameObjectは Unityで扱う最小単位のオブジェクトです。Unity2018�
 
 DCCツール(Maya,SoftImage,3DStduioMax etc)を使用したことがあればヒエラルキーがあると思いますが、それのイメージと同じなのかと思います。その他のオーサリングソフト例えばフォトショップではレイヤーでしょうか？
 
-## クラス継承
+## クラス定義
 ```CSharp
 using System;
 using System.Collections.Generic;
@@ -299,7 +299,7 @@ namespace UnityEngine
 
 
 ## 各種Component
-代表的な Component( コンポーネント )を見てみましょう。
+Component( コンポーネント )から派生している代表的なクラスを見てみましょう。
 
 ### Transform Component
 
@@ -329,8 +329,14 @@ Behaviourもコンポーネントです。 皆さんの書いているスクリ�
 詳しくは[UnityEngine.Behaviour - Unity スクリプトリファレンス](https://docs.unity3d.com/ja/current/ScriptReference/Behaviour.html)を見て下さい。
 
 
+### その他のComponent
+そのほかに沢山あるので追記しておきます。
+
+
 # UnityEngine.Objectってなに？
 
+## クラス定義
+### Object クラス
 ```CSharp
 using System;
 using System.Security;
