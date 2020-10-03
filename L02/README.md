@@ -17,12 +17,11 @@ MonoBehaviourのクラス定義を見るためにプロジェクトを用意し�
 
 ### Unityで新規プロジェクトを作ります
 1. UnityHubで新規作成を選びUnityのバージョンを選びます。バージョンは現在使用している最新版で問題ないです。
-1. フォルダーと名前を決めて作成を押してください。
-<img src="./img/スクリーンショット 2020-10-03 095751.png" style="border:1px solid;">
+1. フォルダーと名前を決めて作成を押してください。<img src="./img/スクリーンショット 2020-10-03 095751.png" style="border:2px solid;">
 1. Unityのメニューの[Asset]-[Create]-[C# Script]でスクリプトを作ります。ここでは Fooにしましょう。
 1. Fooスクリプトをダブルクリックして Visual Stduio 2019を起動して下さい。
 1. Visual Stdio 2019のソースコード上で MonoBehaviour にカーソルを合わせてマウス右メニューを開き[定義へ移動]を選択してください。もちろんF12キーでも開くことができます。
-<img src="./img/スクリーンショット 2020-10-03 085600.png" style="border:1px solid;">
+<img src="./img/スクリーンショット 2020-10-03 085600.png" style="border:2px solid;">
 
 ### MonoBehaviour クラス
 ```CSharp
@@ -322,12 +321,12 @@ Transform.parentという変数を持っていて 自分の親は誰かを表し
 
 ### RectTransform Component
 
-[UnityEngine.RectTransform - Unity スクリプトリファレンス](https://docs.unity3d.com/ja/current/ScriptReference/RectTransform.html)
+詳しくは[UnityEngine.RectTransform - Unity スクリプトリファレンス](https://docs.unity3d.com/ja/current/ScriptReference/RectTransform.html)を見て下さい。
 
 ### Behaviour Component
 Behaviourもコンポーネントです。 皆さんの書いているスクリプトは Behaviourから派生しているのを作っていると思いますので、結局カスタムコンポーネントを作成していることなのです。
 
-[UnityEngine.Behaviour - Unity スクリプトリファレンス](https://docs.unity3d.com/ja/current/ScriptReference/Behaviour.html)
+詳しくは[UnityEngine.Behaviour - Unity スクリプトリファレンス](https://docs.unity3d.com/ja/current/ScriptReference/Behaviour.html)を見て下さい。
 
 
 # UnityEngine.Objectってなに？
