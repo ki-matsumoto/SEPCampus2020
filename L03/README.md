@@ -1,4 +1,4 @@
-# 当り判定について
+# 当り判定
 <div style="text-align: right;">
 2020年10月17日<br>
 株式会社アルファオメガ  松本清明
@@ -34,7 +34,7 @@ public class ShapeCircle : MonoBehaviour
 }
 ```
 
-## 円と円を監視するスクリプト
+## 円形と円形を監視するスクリプト
 ```CSharp
 using System.Collections;
 using System.Collections.Generic;
@@ -67,7 +67,7 @@ public class foo : MonoBehaviour
 1. 色も適当に変えておきます。
 
 ## 円形と円形を監視するスクリプトをカメラに設定
-1. カメラオブジェクトに fooクラスを割り当て
+1. カメラオブジェクトに fooクラスを割り当て下さい。
 1. インスペクター shape1に circle Sprite Aを割り当てる
 1. インスペクター shape2に circle Sprite Bを割り当てる
 
