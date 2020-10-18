@@ -1,17 +1,20 @@
 # 当り判定
 <div style="text-align: right;">
-2020年10月17日<br>
+更新 2020年10月18日<br>
 株式会社アルファオメガ  松本清明
 </div>
 
 
 # 検証プログラム環境準備
-辺り判定のプログラムを確認する環境を作りましょう。
+当り判定のプログラムを確認する環境を作りましょう。
 円形のスプライトを２つ用意して２つの間に線を書きます。円同士が重なっていると赤い線に変更します。
 
 <img src="./img/スクリーンショット 2020-10-17 110402.png" style="border:1px solid;">
 
-## 円形クラス
+## サンプルスクリプト
+今回使用する２つのスクリプトを用意してください。
+
+### 円形クラス
 ```CSharp
 using System.Collections;
 using System.Collections.Generic;
@@ -34,7 +37,8 @@ public class ShapeCircle : MonoBehaviour
 }
 ```
 
-## 円形と円形を監視するスクリプト
+
+### 円形と円形を監視するスクリプト
 ```CSharp
 using System.Collections;
 using System.Collections.Generic;
@@ -53,18 +57,24 @@ public class foo : MonoBehaviour
 }
 ```
 
+## Unity Hubで新規プロジェクトを作成
+1. Unityのバージョンは なんでも良いです。新規にプロジェクトを用意して下さい。
+1. Sceneの2Dというボタンを押しておくと見やすいと思います。<img src="./img/スクリーンショット 2020-10-18 115618.png" style="border:1px solid;">
+
 ## Circle Sprite Aを作成します
 1. Unityのメニューで[GameObject]-[2D Object]-[Sprite]で作成します。
 1. GameObjectの名前を Circle Sprite Aとします。
 1. Spriteの形状をKnobに変更します。
 1. 色も適当に変えておきます。
 1. ShapeCircle スクリプトを割り当てます。
+1. TransformのScaleを 10,10,1に変更します。
 
 ## Circle Sprite Bを作成します
 1. Unityのメニューで[GameObject]-[2D Object]-[Sprite]で作成します。
 1. GameObjectの名前を Circle Sprite Bとします。
 1. Spriteの形状をKnobに変更します。
 1. 色も適当に変えておきます。
+1. TransformのScaleを 10,10,1に変更します。
 
 ## 円形と円形を監視するスクリプトをカメラに設定
 1. カメラオブジェクトに fooクラスを割り当て下さい。
@@ -75,9 +85,11 @@ public class foo : MonoBehaviour
 Gizmoで描画しているので再生しなくともGameObjectを移動させると描画が更新されます。
 この仕組みで辺り判定のアルゴリズム書いて確認するようにして下さい。
 
-# 矩形と矩形との当り判定
+# その他の２D判定処理
 
-## 矩形クラス
+## 矩形と矩形との当り判定
+
+### 矩形クラス
 ```CSharp
 using System.Collections;
 using System.Collections.Generic;
@@ -100,7 +112,7 @@ public class ShapeRect : MonoBehaviour
 }
 ```
 
-## 矩形と矩形と監視するスクリプト
+### 矩形と矩形と監視するスクリプト
 ```CSharp
 using System.Collections;
 using System.Collections.Generic;
@@ -118,14 +130,26 @@ public class foo : MonoBehaviour
     }
 }
 ```
-# 円と矩形との当り判定
+
+## 直線と直線との当り判定
 実装してみて下さい。
 
-# 円とラインとの当り判定
+## カプセルとカプセルの当り判定
 実装してみて下さい。
 
-# 円とカプセルとの当り判定
+
+## 円と矩形との当り判定
 実装してみて下さい。
+
+## 円とラインとの当り判定
+実装してみて下さい。
+
+## 円とカプセルとの当り判定
+実装してみて下さい。
+
+# 別の種類の形状と形状の組み合わせの辺り判定について
+ここまで来ると様々な形状との当り判定を考慮するにはどうしたら良いか管理に悩むかと思います。その場合に Shapeという基底クラスを作り ShapeCircleやShapeRectを派生させて管理します。その時にどのような実装にすれば良いでしょうか？
+
 
 # ３D判定処理
 
