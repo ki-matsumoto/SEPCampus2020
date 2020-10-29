@@ -2,23 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shape : MonoBehaviour
+abstract class Shape : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    abstract public bool HitTest(Shape other);
 
-    public bool HitTest( Shape other )
-    {
-        return false;
-    }
+    abstract public bool HitTestShapeCircle(ShapeCircle other);
 
+    abstract public bool HitTestShapeBox(ShapeBox other);
+
+    //    abstract protected bool HitTestShapeSphere(Shape other);
+
+    //    abstract protected bool HitTestShapeCapsule(Shape other);
+
+    //    abstract protected bool HitTestShapeAABB(Shape other);
 }

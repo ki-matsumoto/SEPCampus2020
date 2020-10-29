@@ -20,8 +20,10 @@ public class foo : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+#if true
         var clr1 = shape1.HitTest(shape2) ? Color.red : Color.white;
         Gizmos.color = clr1;
         Gizmos.DrawLine(shape1.transform.position, shape2.transform.position);
+#endif
     }
 }
