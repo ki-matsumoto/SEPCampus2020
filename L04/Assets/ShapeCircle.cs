@@ -20,29 +20,28 @@ class ShapeCircle : Shape
 
     override public bool HitTest(Shape other)
     {
-        return other.HitTestShapeCircle(this);
+        return other.HitTest(this);
     }
 
-    override public bool HitTestShapeCircle(ShapeCircle other)
+    override public bool HitTest(ShapeCircle other)
     {
         // お互いの半径を足す
         var r = radius + other.radius;
 
         // 距離を求める
-        var x = transform.position.x - other.transform.position.x;
-        var y = transform.position.y - other.transform.position.y;
-        var d = Mathf.Sqrt(x * x + y * y);
+        var nx = transform.position.x - other.transform.position.x;
+        var ny = transform.position.y - other.transform.position.y;
+        var d = Mathf.Sqrt(nx * nx + ny * ny);
 
         return d < r;
     }
-    override public bool HitTestShapeBox(ShapeBox other)
+
+    override public bool HitTest(ShapeBox other)
     {
-        float x = transform.position.x - other.transform.position.x;
-        float y = transform.position.y - other.transform.position.y;
-
-        return ((radius + other.size.x) < x) && ((radius + other.size.y) < y);
+        float nx = Mathf.Abs(transform.position.x - other.transform.position.x);
+        float ny = Mathf.Abs(transform.position.y - other.transform.position.y);
+        return (nx < (radius + other.size.x / 2)) && (ny < (radius + other.size.y / 2));
     }
-
 
     private void OnDrawGizmos()
     {

@@ -23,19 +23,19 @@ class ShapeBox : Shape
 
     override public bool HitTest(Shape other)
     {
-        return other.HitTestShapeBox(this);
+        return other.HitTest(this);
     }
 
-    override public bool HitTestShapeCircle(ShapeCircle other)
+    override public bool HitTest(ShapeCircle other)
     {
-        return other.HitTestShapeBox(this);
+        return other.HitTest(this);
     }
 
-    override public bool HitTestShapeBox(ShapeBox other)
+    override public bool HitTest(ShapeBox other)
     {
-        float x = transform.position.x - other.transform.position.x;
-        float y = transform.position.y - other.transform.position.y;
+        float nx = Mathf.Abs(transform.position.x - other.transform.position.x);
+        float ny = Mathf.Abs(transform.position.y - other.transform.position.y);
 
-        return ((size.x + other.size.x) < x) && ((size.y + other.size.y) < y);
+        return (nx < (size.x + other.size.x) / 2) && (ny < (size.y + other.size.y) / 2);
     }
 }

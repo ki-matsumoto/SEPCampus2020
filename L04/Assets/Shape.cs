@@ -8,9 +8,9 @@ abstract class Shape : MonoBehaviour
 
     abstract public bool HitTest(Shape other);
 
-    abstract public bool HitTestShapeCircle(ShapeCircle other);
+    abstract public bool HitTest(ShapeCircle other);
 
-    abstract public bool HitTestShapeBox(ShapeBox other);
+    abstract public bool HitTest(ShapeBox other);
 
     //    abstract protected bool HitTestShapeSphere(Shape other);
 
