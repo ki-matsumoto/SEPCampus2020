@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Profiling;
 using UnityEngine;
 
 class ShapeCircle : Shape
@@ -38,9 +39,31 @@ class ShapeCircle : Shape
 
     override public bool HitTest(ShapeBox other)
     {
+        Vector2 d = other.size / 2;
+        float x1 = other.transform.position.x - d.x;
+        float x2 = other.transform.position.x + d.x;
+        float y1 = other.transform.position.y - d.y;
+        float y2 = other.transform.position.y + d.y;
+
+        bool flag1 = x1 <= transform.position.x && transform.position.x <= x2;
+        bool flag2 = y1 <= transform.position.y && transform.position.y <= y2;
+
+        if (flag1 && flag2)
+        {
+            return true;
+        }
+
         float nx = Mathf.Abs(transform.position.x - other.transform.position.x);
         float ny = Mathf.Abs(transform.position.y - other.transform.position.y);
-        return (nx < (radius + other.size.x / 2)) && (ny < (radius + other.size.y / 2));
+        if (flag2)
+        {
+            return (nx < (radius + other.size.x / 2));
+        }
+        else if ( flag1 )
+        {
+            return (ny < (radius + other.size.y / 2));
+        }
+        return  Mathf.Sqrt(nx * nx + ny * ny) <= Mathf.Sqrt(d.x * d.x + d.y * d.y) + radius;
     }
 
     private void OnDrawGizmos()
