@@ -30,33 +30,28 @@ class ShapeCircle : Shape
         var r = radius + other.radius;
 
         // 距離を求める
-        var nx = transform.position.x - other.transform.position.x;
-        var ny = transform.position.y - other.transform.position.y;
-        var d = Mathf.Sqrt(nx * nx + ny * ny);
+        float nx = transform.position.x - other.transform.position.x;
+        float ny = transform.position.y - other.transform.position.y;
+        Vector2 n = new Vector2(nx, ny);
 
+        var d = Mathf.Sqrt(Vector2.Dot(n, n));
         return d < r;
     }
 
     override public bool HitTest(ShapeBox other)
     {
-        Vector2 d = other.size / 2;
+        Vector2 hsize = other.size * 0.5f;
+
         float nx = Mathf.Abs(transform.position.x - other.transform.position.x);
         float ny = Mathf.Abs(transform.position.y - other.transform.position.y);
-        bool flag1 = nx < d.x;
-        bool flag2 = ny < d.y;
-        if (flag1 && flag2)
-        {
-            return true;
-        }
-        else if(flag2)
-        {
-            return nx < (radius + d.x);
-        }
-        else if (flag1)
-        {
-            return ny < (radius + d.y);
-        }
-        return  Mathf.Sqrt(nx * nx + ny * ny) <= radius + Mathf.Sqrt(d.x * d.x + d.y * d.y);
+        Vector2 n = new Vector2(nx, ny);
+
+        if (nx < hsize.x) return ny < (radius + hsize.y);
+        if (ny < hsize.y) return nx < (radius + hsize.x);
+
+        Vector2 d = n - hsize;
+        float len = Mathf.Sqrt(Vector2.Dot(d, d));
+        return len <= radius;
     }
 
 #if false
