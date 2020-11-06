@@ -54,31 +54,40 @@ class ShapeCircle : Shape
         return len <= radius;
     }
 
-#if false
-    override public bool HitTest(ShapeBox other)
+    override public bool HitTest(ShapeCapsule other)
     {
-        Vector2 d = other.size / 2;
-        float nx = Mathf.Abs(transform.position.x - other.transform.position.x);
-        float ny = Mathf.Abs(transform.position.y - other.transform.position.y);
-        bool flag1 = nx < d.x;
-        bool flag2 = ny < d.y;
+        var mat = Matrix4x4.Rotate(other.transform.rotation);
+        var h = mat.MultiplyVector(new Vector3(other.length * 0.5f, 0, 0));
+        // 2点の座標
+        Vector3 p1 = other.transform.position - h;
+        Vector3 p2 = other.transform.position + h;
 
-        if (flag1 && flag2)
-        {
-            return true;
-        }
 
-        if (flag2)
+        var ab = p2 - p1;
+        var ac = new Vector3(transform.position.x, transform.position.y) - p1;
+
+        var t = Vector2.Dot(ab, ac);
+        Vector2 c;
+        if (t <= 0)
         {
-            return (nx < (radius + other.size.x / 2));
+            c = p1;
         }
-        else if (flag1)
+        else
         {
-            return (ny < (radius + other.size.y / 2));
+            float denom = Vector2.Dot(ab, ab);
+            if (t >= denom)
+            {
+                c = p2;
+            }
+            else
+            {
+                t /= denom;
+                c = p1 + ab * t;
+            }
         }
-        return Mathf.Sqrt(nx * nx + ny * ny) <= radius + Mathf.Sqrt(d.x * d.x + d.y * d.y);
+        var tmp = c - new Vector2(transform.position.x, transform.position.y);
+        return Mathf.Sqrt(Vector2.Dot(tmp, tmp)) <= radius + other.radius;
     }
-#endif
 
     private void OnDrawGizmos()
     {

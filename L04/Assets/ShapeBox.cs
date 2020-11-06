@@ -38,4 +38,8 @@ class ShapeBox : Shape
 
         return (nx < (size.x + other.size.x) / 2) && (ny < (size.y + other.size.y) / 2);
     }
+    override public bool HitTest(ShapeCapsule other)
+    {
+        return false;
+    }
 }

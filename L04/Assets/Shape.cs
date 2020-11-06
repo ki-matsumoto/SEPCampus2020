@@ -12,9 +12,9 @@ abstract class Shape : MonoBehaviour
 
     abstract public bool HitTest(ShapeBox other);
 
-    //    abstract protected bool HitTestShapeSphere(Shape other);
+    abstract public bool HitTest(ShapeCapsule other);
 
-    //    abstract protected bool HitTestShapeCapsule(Shape other);
+    //    abstract protected bool HitTestShapeSphere(Shape other);
 
     //    abstract protected bool HitTestShapeAABB(Shape other);
 }
