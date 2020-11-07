@@ -26,16 +26,13 @@ class ShapeCircle : Shape
 
     override public bool HitTest(ShapeCircle other)
     {
-        // お互いの半径を足す
-        var r = radius + other.radius;
-
         // 距離を求める
         float nx = transform.position.x - other.transform.position.x;
         float ny = transform.position.y - other.transform.position.y;
         Vector2 n = new Vector2(nx, ny);
 
         var d = Mathf.Sqrt(Vector2.Dot(n, n));
-        return d < r;
+        return d < radius + other.radius;
     }
 
     override public bool HitTest(ShapeBox other)
