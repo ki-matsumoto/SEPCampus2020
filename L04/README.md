@@ -1,13 +1,3 @@
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
-<script type="text/x-mathjax-config">
- MathJax.Hub.Config({
- tex2jax: {
- inlineMath: [["\\(","\\)"] ],
- displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
- }
- });
-</script>
-
 # 当り判定
 <div style="text-align: right;">
 2020年11月7日<br>
@@ -194,7 +184,7 @@ class ShapeCapsule : Shape
 
 お互いの半径同士を足したものとお互いの距離が小さかった場合に当たっていると判定できます。そこでお互いの距離を求める計算式は 以下の様になると思います。
 
-$$ length = \sqrt{x^2+y^2} $$
+<img src="./img/SS 2020-11-07 111633.png">
 
 現代のコンピューターでもルートの計算コストは高いです。
 今回の計算はお互いの距離を求めたいのではなく、当たっているかを判定したいだけです。
